@@ -1,15 +1,15 @@
-import requests
-import json
 import os
+import json
 import re
+from collections import defaultdict
 
-# Your LeetCode Username
-LEETCODE_USERNAME = "Ashi12218604"  
+# Path to your LeetSync problems folder inside the repo
+LEETSYNC_PATH = "Leetcode/problems"
 
-# GitHub README Path
-README_PATH = "README.md"  
+# Path to your README.md
+README_PATH = "README.md"
 
-# Mapping topics to relevant tags
+# Mapping: Display Name -> LeetCode Tag
 TOPICS = {
     "Arrays": "array",
     "Binary Search": "binary-search",
@@ -18,62 +18,55 @@ TOPICS = {
     "Stacks & Queues": "stack"
 }
 
-# Function to get LeetCode stats
-def get_leetcode_stats():
-    url = "https://leetcode.com/graphql"
-    query = {
-        "query": """
-        {
-            matchedUser(username: "%s") {
-                submitStats {
-                    acSubmissionNum {
-                        difficulty
-                        count
-                        submissions
-                    }
-                }
-            }
-        }
-        """ % LEETCODE_USERNAME
-    }
-    
-    headers = {"Content-Type": "application/json"}
-    response = requests.post(url, headers=headers, json=query)
+# Count solved problems per tag
+def get_tag_wise_counts():
+    topic_counts = defaultdict(int)
+    total_count = 0
 
-    if response.status_code == 200:
-        data = response.json()
-        return data["data"]["matchedUser"]["submitStats"]["acSubmissionNum"]
-    else:
-        return None
+    for filename in os.listdir(LEETSYNC_PATH):
+        if filename.endswith(".json"):
+            filepath = os.path.join(LEETSYNC_PATH, filename)
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    total_count += 1
+                    for tag in data.get("tags", []):
+                        topic_counts[tag] += 1
+            except json.JSONDecodeError:
+                print(f"❌ JSON Decode Error in file: {filename}")
 
-# Function to calculate progress percentage
+    return topic_counts, total_count
+
+# Calculate percentage
 def calculate_progress(topic_count, total_solved):
     if total_solved == 0:
         return 0
     return min(100, int((topic_count / total_solved) * 100))
 
-# Function to update README
-def update_readme(stats):
+# Update README.md with topic-wise progress
+def update_readme_with_tags(tag_counts, total_count):
     with open(README_PATH, "r", encoding="utf-8") as file:
         content = file.read()
 
-    total_solved = sum(entry["count"] for entry in stats)
     updated_content = content
-
     for topic, tag in TOPICS.items():
-        topic_count = next((entry["count"] for entry in stats if entry["difficulty"] == tag), 0)
-        progress = calculate_progress(topic_count, total_solved)
-
+        topic_count = tag_counts.get(tag, 0)
+        progress = calculate_progress(topic_count, total_count)
         progress_bar = "█" * (progress // 10) + "░" * (10 - progress // 10)
-        progress_text = f"🌟 **{topic}:**   {progress_bar}  **{progress}%**"
+        progress_text = f"🌟 **{topic}:**   {progress_bar}  **{progress}% ({topic_count}/{total_count})**"
 
-        updated_content = re.sub(f"🌟 \\*\\*{topic}:\\*\\*.*", progress_text, updated_content)
+        updated_content = re.sub(
+            f"🌟 \\*\\*{topic}:\\*\\*.*",
+            progress_text,
+            updated_content
+        )
 
     with open(README_PATH, "w", encoding="utf-8") as file:
         file.write(updated_content)
+    
+    print("✅ README.md updated successfully with real-time topic-wise LeetCode stats.")
 
 # Run the script
 if __name__ == "__main__":
-    stats = get_leetcode_stats()
-    if stats:
-        update_readme(stats)
+    tag_counts, total_solved = get_tag_wise_counts()
+    update_readme_with_tags(tag_counts, total_solved)
