@@ -87,7 +87,7 @@
     <img src="https://img.shields.io/badge/Gmail-guptaashi655@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail Badge" />
   </a>
   &nbsp;
-  <a href="https://github.com/Ashi12218604/resume/raw/main/Ashi_Gupta_Resume.pdf" target="_blank">
+  <a href="https://github.com/Ashi12218604/Ashi12218604/raw/main/ashi_ds_resume.pdf" target="_blank">
     <img src="https://img.shields.io/badge/Resume-Download%20PDF-success?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume Badge" />
   </a>
 </p>
