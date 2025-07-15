@@ -59,11 +59,6 @@
 
 ## 🚀 Leetcode Progress (Synced via LeetSync)  
 
-<p align="center">
-  <a href="https://github.com/Ashi12218604/Leetcode">
-    <img src="https://img.shields.io/badge/LeetCode-Synced%20via%20LeetSync-orange?style=for-the-badge&logo=leetcode" alt="LeetCode Sync Badge"/>
-  </a>
-</p>
 
 📌 **📝 Repository:** [Leetcode](https://github.com/Ashi12218604/Leetcode)  
 📌 **🔥 Automation:** All solved LeetCode problems are **automatically** synced and pushed to GitHub.  
