@@ -61,17 +61,8 @@
 
 
 📌 **📝 Repository:** [Leetcode](https://github.com/Ashi12218604/Leetcode)  
-📌 **🔥 Automation:** All solved LeetCode problems are **automatically** synced and pushed to GitHub.  
+📌 **🔥 Automation:** All solved LeetCode problems are **automatically** synced and pushed to GitHub.   
 
-### 🚀 **Problem-Solving Progress**  
-
-📊 **Current Problems Solved:**
-
-🌟 **Arrays:**   ██████████░░░░░  **75%**  
-🔎 **Binary Search:**   ██████████░░░░  **75%**  
-🔗 **Linked Lists:**   ███████░░░░░░░  **60%**  
-🌲 **Trees:**   █████████░░░░░░  **70%**  
-📚 **Stacks & Queues:**   ██████░░░░░░░  **50%**  
 
 ---
 
