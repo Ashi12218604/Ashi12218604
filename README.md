@@ -18,14 +18,10 @@
   <img src="https://media.giphy.com/media/fAnzw6YK33jMwzp5wp/giphy.gif" width="200" height="200">
 </p>
 
-- 🏫 **CS & ML Student** passionate about solving real-world problems using **Data Science & AI**  
-- 💡 Exploring **Machine Learning, DSA in Java**  
+- 🏫 **CS (Data Science & ML Student)** passionate about solving real-world problems using **Data Science & AI**  
+- 💡 Exploring **Machine Learning, DSA and other tech stacks**  
 - 🎨 Love designing **interactive dashboards & data-driven applications**  
-- 🌱 Currently learning **Graph Algorithms & AI-based optimization techniques**  
-- 🎯 **Fun fact:**  
-  - 🧩 I see real-life problems as coding challenges—sometimes I even mentally pseudocode solutions to random things 🚀  
-  - 🌳 I can implement **Morris Traversal**, **LCA**, and **construct trees from traversal arrays**—and yeah, I actually enjoy that stuff 😄  
-  - 🎮 If coding had a **difficulty level**, I’d probably be playing it on "Insane Mode" and still enjoying the grind 😆
+- 🌱 Currently learning **Fullstack with AI Integration**  
 
 ## 🔥 Tech Stack  
 <p align="left">  
